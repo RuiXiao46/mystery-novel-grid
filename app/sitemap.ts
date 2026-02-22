@@ -1,8 +1,8 @@
-import { MetadataRoute } from 'next';
+﻿import { MetadataRoute } from 'next';
 import { locales } from '@/lib/i18n/locales';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://moviegrid.dsdev.ink';
+  const baseUrl = 'https://mysterygrid.top';
   const lastModified = new Date();
 
   return [
@@ -20,4 +20,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 }
+
 

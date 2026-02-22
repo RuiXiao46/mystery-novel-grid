@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from 'react';
 import { useI18n } from '@/lib/i18n/provider';
@@ -27,7 +27,7 @@ export default function Home() {
   const handleCopyUrl = async () => {
     console.log('Copy button clicked');
     try {
-      await navigator.clipboard.writeText('moviegrid.dsdev.ink');
+      await navigator.clipboard.writeText('mysterygrid.top');
       console.log('Copied successfully');
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
@@ -36,7 +36,7 @@ export default function Home() {
       // Fallback: try using document.execCommand
       try {
         const textArea = document.createElement('textarea');
-        textArea.value = 'moviegrid.dsdev.ink';
+        textArea.value = 'mysterygrid.top';
         textArea.style.position = 'fixed';
         textArea.style.opacity = '0';
         document.body.appendChild(textArea);
@@ -69,7 +69,7 @@ export default function Home() {
         const savedCells = await loadCellsFromDB();
         setCells((prevCells) => {
           let newCells = [...prevCells];
-          // 合并 DB 数据但不覆盖标题（title 由语系字典或本地覆盖提供）
+          // Merge DB data but keep localized titles intact.
           savedCells.forEach((savedCell) => {
             const idx = newCells.findIndex((cell) => cell.id === savedCell.id);
             if (idx !== -1) {
@@ -79,7 +79,7 @@ export default function Home() {
             }
           });
 
-          // 应用该语系下的自定义标题覆盖
+          // 搴旂敤璇ヨ绯讳笅鐨勮嚜瀹氫箟鏍囬瑕嗙洊
           if (typeof window !== 'undefined') {
             const key = `movieGridTitles_${locale}`;
             const json = localStorage.getItem(key);
@@ -93,19 +93,19 @@ export default function Home() {
           return newCells;
         });
       } catch (e) {
-        console.error('加载数据失败:', e);
+        console.error('鍔犺浇鏁版嵁澶辫触:', e);
       } finally {
         setLoading(false);
       }
     };
 
-    // 添加超时机制，确保即使 IndexedDB 失败也能显示界面（特别是 Safari 移动端）
+    // 娣诲姞瓒呮椂鏈哄埗锛岀‘淇濆嵆浣?IndexedDB 澶辫触涔熻兘鏄剧ず鐣岄潰锛堢壒鍒槸 Safari 绉诲姩绔級
     let timeoutTriggered = false;
     const timeoutId = setTimeout(() => {
       timeoutTriggered = true;
-      console.warn('IndexedDB 加载超时，已强制显示页面');
+      console.warn('IndexedDB 鍔犺浇瓒呮椂锛屽凡寮哄埗鏄剧ず椤甸潰');
       setLoading(false);
-    }, 800); // 800ms超时
+    }, 800); // 800ms瓒呮椂
 
     loadData().finally(() => {
       if (!timeoutTriggered) {
@@ -131,7 +131,7 @@ export default function Home() {
               {t('warning.in_app_browser')}
             </p>
             <div className="flex items-center gap-2 bg-white/60 rounded px-3 py-2 border border-yellow-200">
-              <code className="flex-1 text-xs font-mono text-black/80">moviegrid.dsdev.ink</code>
+              <code className="flex-1 text-xs font-mono text-black/80">mysterygrid.top</code>
               <Button
                 type="button"
                 size="sm"
@@ -152,7 +152,7 @@ export default function Home() {
       <FeedbackSidebarTrigger />
       <LanguageSwitcher />
 
-      {/* SEO 优化：语义化标题 */}
+      {/* SEO 浼樺寲锛氳涔夊寲鏍囬 */}
       <h1 className="sr-only">
         {t('global.main_title')}
       </h1>
@@ -165,14 +165,14 @@ export default function Home() {
         <p className="flex items-center justify-center mb-1">
           {t('footer.if_useful_star')}
           <a
-            href="https://github.com/janethedev/movie-grid"
+            href="https://github.com/RuiXiao46/mystery-novel-grid"
             target="_blank"
             rel="noopener noreferrer"
             className="ml-2 inline-flex items-center"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://img.shields.io/github/stars/janethedev/movie-grid?style=social"
+              src="https://img.shields.io/github/stars/RuiXiao46/mystery-novel-grid?style=social"
               alt="GitHub Stars"
               className="align-middle"
             />
@@ -193,14 +193,14 @@ export default function Home() {
         </p>
         <p className="flex items-center justify-center mt-1">
           <a
-            href="https://hits.sh/github.com/janethedev/movie-grid"
+            href="https://hits.sh/github.com/RuiXiao46/mystery-novel-grid"
             target="_blank"
             rel="noopener noreferrer"
             className="ml-2 inline-flex items-center"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://hits.sh/github.com/janethedev/movie-grid.svg?label=views&color=007ec6"
+              src="https://hits.sh/github.com/RuiXiao46/mystery-novel-grid.svg?label=views&color=007ec6"
               alt="Visitors Count"
               className="align-middle"
             />
@@ -210,7 +210,7 @@ export default function Home() {
 
       {/* JSON-LD: WebApplication */}
       {(() => {
-        const base = 'https://moviegrid.dsdev.ink';
+        const base = 'https://mysterygrid.top';
         const url = base;
         const webAppLd: Record<string, unknown> = {
           '@context': 'https://schema.org',
@@ -226,41 +226,7 @@ export default function Home() {
             (typeof t('meta.description') === 'string' && t('meta.description')) ||
             'Create your mystery novel preference grid',
         };
-        if (locale.startsWith('zh')) {
-          webAppLd.alternateName = [
-            '电影生涯喜好表',
-            '电影生涯个人喜好表',
-            '电影喜好表',
-            '电影九宫格',
-            '电影喜好九宫格',
-          ];
-        }
-        const faqLd = locale === 'zh-CN'
-          ? {
-              '@context': 'https://schema.org',
-              '@type': 'FAQPage',
-              mainEntity: [
-                {
-                  '@type': 'Question',
-                  name: '什么是电影生涯喜好表（电影喜好表）？',
-                  acceptedAnswer: {
-                    '@type': 'Answer',
-                    text:
-                      '一种用九宫格等布局展示你对不同维度「最爱、最惊艳、最治愈」等的电影偏好，可导出分享。',
-                  },
-                },
-                {
-                  '@type': 'Question',
-                  name: '如何生成我的电影生涯喜好表？',
-                  acceptedAnswer: {
-                    '@type': 'Answer',
-                    text:
-                      '在页面中点击格子标题或名称即可编辑，支持搜索封面或拖拽图片，完成后点击生成按钮导出图片。',
-                  },
-                },
-              ],
-            }
-          : null;
+        const faqLd = null;
         return (
           <>
             <script
@@ -279,3 +245,7 @@ export default function Home() {
     </main>
   );
 }
+
+
+
+

@@ -1,4 +1,4 @@
-import { ImageResponse } from 'next/og';
+﻿import { ImageResponse } from 'next/og';
 import { getMessages } from '@/lib/i18n/getMessages';
 import { getLocale } from '@/lib/i18n/getLocale';
 
@@ -52,8 +52,8 @@ export default async function Image() {
             color: '#1f2937',
           }}
         >
-          <span>moviegrid.dsdev.ink</span>
-          <span style={{ opacity: 0.75 }}>Twitter • {locale}</span>
+          <span>mysterygrid.top</span>
+          <span style={{ opacity: 0.75 }}>Twitter 鈥?{locale}</span>
         </div>
       </div>
     ),
@@ -62,3 +62,4 @@ export default async function Image() {
     }
   );
 }
+

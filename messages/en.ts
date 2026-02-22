@@ -1,4 +1,4 @@
-const en = {
+﻿const en = {
   meta: {
     title: 'Mystery Novel Preference Grid | Novel Grid Generator',
     description: 'Create your mystery novel preference grid. Customize cells, search book covers, and export a high-quality image with one click.',
@@ -59,9 +59,9 @@ const en = {
   },
   footer: {
     made_with: 'made with Copilot & Codex',
-    if_useful_star: 'If you find it useful, please star →',
+    if_useful_star: 'If you find it useful, please star ->',
     powered_by: 'Powered by Douban',
-    friendship_link: 'Link exchange: ',
+    friendship_link: 'Reference: ',
     friendship_link_site: ' Game Preference Grid',
     feedback_button: 'Share your feedback',
   },
@@ -108,7 +108,7 @@ const en = {
     crop_image_failed: 'Failed to crop image',
   },
   warning: {
-    storage_unavailable: '⚠️ Data storage is unavailable (possibly private browsing mode). Your data will be lost after refresh. Please exit private mode to save your data.',
+    storage_unavailable: 'Data storage is unavailable (possibly private browsing mode). Your data will be lost after refresh. Please exit private mode to save your data.',
     in_app_browser: 'In-app browser detected. Saving might fail. Please open in system browser or another browser.',
   },
 };

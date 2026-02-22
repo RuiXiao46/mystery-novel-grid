@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState, useEffect, useRef } from "react"
 import NextImage from "next/image"
@@ -24,6 +24,7 @@ type SearchStatus = {
 
 export function MovieSearchDialog({ isOpen, onOpenChange, onSelectMovie, onUploadImage }: MovieSearchDialogProps) {
   const { t } = useI18n();
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [searchTerm, setSearchTerm] = useState("")
   const [searchResults, setSearchResults] = useState<MovieSearchResult[]>([])
   const [isLoading, setIsLoading] = useState(false)
@@ -207,18 +208,21 @@ export function MovieSearchDialog({ isOpen, onOpenChange, onSelectMovie, onUploa
               <Button variant="outline" onClick={handleClearSearch}>
                 {t('search.clear')}
               </Button>
-              <label className="inline-flex items-center">
-                <input
-                  type="file"
-                  accept="image/*"
-                  className="hidden"
-                  onChange={handleUpload}
-                />
-                <Button type="button" variant="outline">
-                  <Upload className="h-4 w-4" />
-                  {t('search.upload_image')}
-                </Button>
-              </label>
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/*"
+                className="hidden"
+                onChange={handleUpload}
+              />
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => fileInputRef.current?.click()}
+              >
+                <Upload className="h-4 w-4" />
+                {t('search.upload_image')}
+              </Button>
             </div>
           </div>
 

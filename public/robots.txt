@@ -1,5 +1,6 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
-Sitemap: https://moviegrid.dsdev.ink/sitemap.xml
-Host: moviegrid.dsdev.ink
+Sitemap: https://mysterygrid.top/sitemap.xml
+Host: mysterygrid.top
+
 

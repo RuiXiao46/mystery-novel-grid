@@ -1,4 +1,4 @@
-import type React from 'react';
+﻿import type React from 'react';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { Inter } from 'next/font/google';
@@ -26,7 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const keywords = messages.meta?.keywords as string[] | undefined;
 
   return {
-    metadataBase: new URL('https://moviegrid.dsdev.ink'),
+    metadataBase: new URL('https://mysterygrid.top'),
     title: messages.meta?.title ?? 'MovieGrid',
     description: messages.meta?.description ?? 'Create your mystery novel preference grid',
     keywords,
@@ -82,7 +82,7 @@ export default async function RootLayout({
       </head>
       <body className={inter.className} style={{ colorScheme: 'light only' }}>
         <LocaleRedirect />
-        {/* ApiWarmer: 预热接口连接的客户端请求，当前禁用 */}
+        {/* ApiWarmer: 棰勭儹鎺ュ彛杩炴帴鐨勫鎴风璇锋眰锛屽綋鍓嶇鐢?*/}
         {/* <ApiWarmer /> */}
         <I18nProvider locale={locale} messages={messages}>
           {children}
@@ -91,3 +91,4 @@ export default async function RootLayout({
     </html>
   );
 }
+
